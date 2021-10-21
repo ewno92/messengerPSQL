@@ -4,10 +4,23 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-
+import valid from "../../utils/valid";
 import "./Login.scss";
 const Login = () => {
   //   const [signUpToggle, setSignUpToggle] = useState(false);
+
+  const initialState = {
+    username: "",
+    email: "",
+    password: "",
+    cf_password: "",
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("submit");
+  };
 
   return (
     <div id="login">
@@ -18,7 +31,7 @@ const Login = () => {
         autoComplete="current-password"
         variant="standard"
       /> */}
-      <h1>Welcome back!</h1>
+      <h1 className="title">Welcome back!</h1>
       <Box
         className="form-container"
         component="form"
@@ -26,7 +39,8 @@ const Login = () => {
           "& > :not(style)": { m: 1, width: "25ch" },
         }}
         noValidate
-        autoComplete="off"
+        autoComplete="on"
+        onSubmit={handleSubmit}
       >
         <TextField
           className="input"
@@ -41,7 +55,9 @@ const Login = () => {
           label="Password"
           variant="standard"
         />
-        <Button variant="contained">Login</Button>
+        <Button variant="contained" type="submit">
+          Login
+        </Button>
       </Box>
     </div>
   );

@@ -7,17 +7,23 @@
     position: relative;
     // display: flex;
     // align-items: center;
-    background: #86b8ff;
     // background: black;
+
+    background: #86b8ff;
     width: 40%;
-    max-height: 100vh;
-    object-fit: cover;
+    // max-height: 100vh;
+    // display: flex;
+
     .background {
       position: absolute;
+      align-self: flex-start;
       left: 0;
       width: 100%;
+      object-fit: cover;
+      max-height: 100vh;
     }
     .layer {
+      max-height: 100vh;
       width: 100%;
       left: 0;
       position: absolute;
@@ -43,7 +49,6 @@
     }
   }
   .main-container {
-    background-color: white;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -51,6 +56,9 @@
     align-items: center;
     .header {
       display: flex;
+      justify-content: space-between;
+      width: 351px;
+      height: 54px;
       .message {
         color: #b0b0b0;
       }
@@ -62,6 +70,9 @@
         box-sizing: border-box;
         border: 1px solid white;
         transition: all 0.3s;
+        p {
+          color: #3a8dff;
+        }
       }
       .btn:hover {
         border: 2px solid #1976d2;

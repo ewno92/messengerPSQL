@@ -18,7 +18,7 @@ const Home = () => {
           <p>with any language</p>
         </div>
       </div>
-      <main className="main-container">
+      <div className="main-container">
         <div className="header">
           <p className="message">
             {signUpToggle
@@ -32,7 +32,7 @@ const Home = () => {
         <div className="form-container">
           {signUpToggle ? <SignUp /> : <Login />}
         </div>
-      </main>
+      </div>
     </div>
   );
 };
