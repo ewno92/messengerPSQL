@@ -6,31 +6,31 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import valid from "../../utils/valid";
 import "./Login.scss";
-const Login = () => {
-  //   const [signUpToggle, setSignUpToggle] = useState(false);
+import { connect } from "react-redux";
 
+import { login } from "../../store/utils/thunkCreators";
+const Login = () => {
   const initialState = {
     username: "",
-    email: "",
     password: "",
-    cf_password: "",
+  };
+  const [userData, setUserData] = useState(initialState);
+  const { username, password } = userData;
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(userData);
 
-    console.log("submit");
+    await login({ username, password });
   };
 
   return (
     <div id="login">
-      {/* <TextField
-        id="standard-password-input"
-        label="Password"
-        type="password"
-        autoComplete="current-password"
-        variant="standard"
-      /> */}
       <h1 className="title">Welcome back!</h1>
       <Box
         className="form-container"
@@ -44,16 +44,20 @@ const Login = () => {
       >
         <TextField
           className="input"
-          type="email"
+          name="username"
+          type="text"
           id="outlined-basic"
-          label="E-mail address"
+          label="Username"
           variant="standard"
+          onChange={handleChangeInput}
         />
         <TextField
+          name="password"
           id="standard-basic"
           type="password"
           label="Password"
           variant="standard"
+          onChange={handleChangeInput}
         />
         <Button variant="contained" type="submit">
           Login

@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import valid from "../../utils/valid";
 import "./SignUp.scss";
+import Alert from "@mui/material/Alert";
 const SignUp = () => {
   const initialState = {
     username: "",
@@ -11,11 +12,12 @@ const SignUp = () => {
     password: "",
     cf_password: "",
   };
-
   const [userData, setUserData] = useState(initialState);
   const { username, email, password, cf_password } = userData;
 
+  const [errorMsg, setErrorMsg] = useState("");
   const handleChangeInput = (e) => {
+    setErrorMsg("");
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
@@ -25,7 +27,7 @@ const SignUp = () => {
 
     const errMsg = valid(username, email, password, cf_password);
     if (errMsg) {
-      console.log(errMsg);
+      setErrorMsg(errMsg);
     } else {
       console.log(userData);
     }
@@ -34,6 +36,9 @@ const SignUp = () => {
   return (
     <div id="signUp">
       <h1>Create an account.</h1>
+
+      {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
+
       <Box
         className="form-container"
         component="form"
