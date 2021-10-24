@@ -1,0 +1,32 @@
+#message {
+  display: flex;
+  .profile-photo-container {
+    // width: 30px;
+    // height: 30px;
+    // border-radius: 50%;
+    width: 30px;
+    background: black;
+  }
+  .message-container {
+    margin-left: 20px;
+    display: flex;
+
+    flex-direction: column;
+
+    .user-name-time {
+      color: #becce2;
+      margin: 0;
+      text-align: left;
+    }
+    .message-text {
+      margin: 5px 0 0 0;
+
+      color: white;
+      background-color: #6cc1ff;
+      padding: 20px;
+      border-radius: 0 15px 15px 15px;
+
+      background: linear-gradient(30deg, #3a8dff, #6cc1ff);
+    }
+  }
+}

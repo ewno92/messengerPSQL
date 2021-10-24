@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import valid from "../../utils/valid";
 import "./SignUp.scss";
 import Alert from "@mui/material/Alert";
+import { register } from "../../utils/fetchData";
 const SignUp = () => {
   const initialState = {
     username: "",
@@ -29,7 +30,7 @@ const SignUp = () => {
     if (errMsg) {
       setErrorMsg(errMsg);
     } else {
-      console.log(userData);
+      const res = await register(userData);
     }
   };
 

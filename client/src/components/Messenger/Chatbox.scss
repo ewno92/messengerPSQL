@@ -1,0 +1,16 @@
+#chatbox {
+  width: 100%;
+  .header {
+    height: 89px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: gray;
+    .user-name {
+      margin-left: 10px;
+    }
+    .status {
+      margin-left: 20px;
+    }
+  }
+}

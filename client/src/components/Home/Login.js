@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import * as React from "react";
 // import TextField from "@mui/material/TextField";
+import { Redirect, useHistory } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import valid from "../../utils/valid";
+import { authenticate, isAuth } from "../../utils/auth";
 import "./Login.scss";
-import { connect } from "react-redux";
 
-import { login } from "../../store/utils/thunkCreators";
+import { login } from "../../utils/fetchData";
+
 const Login = () => {
+  const history = useHistory();
+  useEffect(() => {
+    isAuth() && history.push("/home");
+  }, []);
+
   const initialState = {
     username: "",
     password: "",
@@ -26,7 +32,15 @@ const Login = () => {
     e.preventDefault();
     console.log(userData);
 
-    await login({ username, password });
+    const res = await login(userData);
+
+    console.log(res);
+    if (res.error) console.log(res.error);
+    else {
+      authenticate(res, () => {
+        history.push("./home");
+      });
+    }
   };
 
   return (
