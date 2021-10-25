@@ -1,0 +1,49 @@
+#active-chat {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  .profile-photo-container {
+    position: relative;
+    .profile-photo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+    }
+    .online-badge {
+      position: absolute;
+      background-color: #1ced84;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+      bottom: 5px;
+      right: 0;
+    }
+    .offline-badge {
+      position: absolute;
+      background-color: #d0dae9;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+      bottom: 5px;
+      right: 0;
+    }
+  }
+  .body-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    .username {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .typing {
+      color: #94a6c4;
+      font-size: 12px;
+      margin: 0;
+      text-align: left;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.scss";
-
+import ActiveChat from "./Sidebar/ActiveChat";
 const Sidebar = () => {
   return (
     <div id="sidebar">
@@ -15,6 +15,10 @@ const Sidebar = () => {
 
       <p className="title">Chats</p>
       <input className="search-bar" type="text" placeholder="Search" />
+      <div className="chat-container">
+        <ActiveChat />
+        <ActiveChat />
+      </div>
     </div>
   );
 };
