@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { authenticate, isAuth } from "../../utils/auth";
 import "./Login.scss";
+import Alert from "@mui/material/Alert";
 
 import { login } from "../../utils/fetchData";
 
@@ -20,12 +21,14 @@ const Login = () => {
     username: "",
     password: "",
   };
+  const [errMsg, setErrMsg] = useState("");
   const [userData, setUserData] = useState(initialState);
   const { username, password } = userData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+    setErrMsg("");
   };
 
   const handleSubmit = async (e) => {
@@ -35,7 +38,7 @@ const Login = () => {
     const res = await login(userData);
 
     console.log(res);
-    if (res.error) console.log(res.error);
+    if (res.error) setErrMsg(res.error);
     else {
       authenticate(res, () => {
         history.push("./home");
@@ -46,6 +49,7 @@ const Login = () => {
   return (
     <div id="login">
       <h1 className="title">Welcome back!</h1>
+      {errMsg && <Alert severity="error">{errMsg}</Alert>}
       <Box
         className="form-container"
         component="form"

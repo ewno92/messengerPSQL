@@ -1,5 +1,21 @@
 #sidebar {
-  background: gray;
-
   width: 30%;
+  padding: 20px;
+  .user-panel {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    .profile-photo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+  }
+  .title {
+    text-align: left;
+  }
+  .search-bar {
+    width: 100%;
+  }
 }

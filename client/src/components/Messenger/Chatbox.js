@@ -10,6 +10,12 @@ const Chatbox = () => {
       </div>
       <div className="message-box">
         <Message />
+        {/* <Message /> */}
+        {/* <Message /> */}
+        <Message own={true} />
+      </div>
+      <div className="input-container">
+        <input type="text" placeholder="type something..." />
       </div>
     </div>
   );

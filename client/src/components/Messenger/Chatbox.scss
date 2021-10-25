@@ -5,12 +5,17 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background: gray;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
     .user-name {
       margin-left: 10px;
     }
     .status {
       margin-left: 20px;
     }
+  }
+  .message-box {
+    padding: 20px;
+  }
+  .input-container {
   }
 }

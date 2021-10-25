@@ -6,10 +6,10 @@ import { authenticate, isAuth, signout } from "../utils/auth";
 import Sidebar from "./Messenger/Sidebar";
 import Chatbox from "./Messenger/Chatbox";
 const Messenger = () => {
-  // const history = useHistory();
-  // useEffect(() => {
-  //   !isAuth() && history.push("/");
-  // }, []);
+  const history = useHistory();
+  useEffect(() => {
+    !isAuth() && history.push("/");
+  }, []);
   // if (isAuth()) return <h1>Sign in</h1>;
 
   return (
