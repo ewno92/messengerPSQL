@@ -1,7 +1,7 @@
 // localstorage
 export const setLocalStorage = (key, value) => {
   if (process.browser) {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, value);
   }
 };
 // authenticate user by pass data to cookie and localstorage
@@ -18,7 +18,7 @@ export const isAuth = () => {
     const tokenChecked = localStorage.getItem("messenger-token");
     if (tokenChecked) {
       if (localStorage.getItem("user")) {
-        return JSON.parse(localStorage.getItem("user"));
+        return localStorage.getItem("user");
       } else {
         return false;
       }

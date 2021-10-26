@@ -15,21 +15,22 @@ const Messenger = () => {
   }, []);
   // if (isAuth()) return <h1>Sign in</h1>;
 
+  useEffect(() => {}, []);
   const post = { id: 1, name: "santiago" };
   return (
     <div id="messenger">
-      {/* <button onClick={() => console.log(isAuth())}>Auth</button>
-      <button
-        onClick={() => {
-          signout();
-        }}
-      >
-        Logout
-      </button> */}
       <Sidebar />
       <Chatbox />
 
       <button onClick={() => getData("conversations")}>click</button>
+      <button
+        onClick={() => {
+          localStorage.clear();
+          history.push("/");
+        }}
+      >
+        log out
+      </button>
     </div>
   );
 };
