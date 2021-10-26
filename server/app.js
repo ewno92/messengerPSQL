@@ -39,7 +39,10 @@ app.use(express.static(join(__dirname, "public")));
 
 app.use(function (req, res, next) {
   const token = req.headers["x-access-token"];
+  console.log(token);
   if (token) {
+    console.log(token);
+    console.log(token);
     jwt.verify(token, process.env.SESSION_SECRET, (err, decoded) => {
       if (err) {
         return next();
@@ -48,6 +51,7 @@ app.use(function (req, res, next) {
         where: { id: decoded.id },
       }).then((user) => {
         req.user = user;
+        console.log("User", req.user);
         return next();
       });
     });

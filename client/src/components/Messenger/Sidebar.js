@@ -14,7 +14,9 @@ const Sidebar = () => {
       </div>
 
       <p className="title">Chats</p>
-      <input className="search-bar" type="text" placeholder="Search" />
+      <div className="search-bar-container">
+        <input className="search-bar" type="text" placeholder="Search" />
+      </div>
       <div className="chat-container">
         <ActiveChat />
         <ActiveChat />
