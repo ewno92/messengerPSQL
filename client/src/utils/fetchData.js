@@ -21,7 +21,7 @@ export const login = async (post, token) => {
 
     const data = await res.json();
     // await localStorage.setItem("messenger-token", data.token);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.log("error");

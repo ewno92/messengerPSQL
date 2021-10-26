@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import * as React from "react";
 // import TextField from "@mui/material/TextField";
 import { Redirect, useHistory } from "react-router-dom";
@@ -11,7 +11,9 @@ import Alert from "@mui/material/Alert";
 
 import { login } from "../../utils/fetchData";
 
+import { UserContext } from "../../UserContext";
 const Login = () => {
+  const { user, setUser } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
     isAuth() && history.push("/home");
@@ -37,9 +39,15 @@ const Login = () => {
 
     const res = await login(userData);
 
-    console.log(res);
     if (res.error) setErrMsg(res.error);
     else {
+      console.log(res);
+      setUser({
+        username: res.username,
+        id: res.id,
+        photoUrl: res.photoUrl,
+        email: res.email,
+      });
       authenticate(res, () => {
         history.push("./home");
       });
